@@ -2,7 +2,7 @@
 
 # Fórmula: C = (5 * ( F-32) / 9)
 
-f = float(input('Informe a temperatura em farenheit> \n'))
+f = float(input('Informe a temperatura em farenheit: \n'))
 c = (5 * ( f-32) / 9)
 
 print(f'O valor equivale a {c} C')
