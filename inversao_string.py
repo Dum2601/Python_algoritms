@@ -1,4 +1,4 @@
-# 11. **Palíndromo** 🔁: Verifique se uma string é um palíndromo.
+#**Inversão de String** 🔄: Inverta uma string.
 
 def check_pal(word):
     invert = word[::-1]
