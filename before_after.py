@@ -1,12 +1,20 @@
-# Faça um algoritmo que receba um número inteiro e imprima na tela o seu antecessor e o seu sucessor.
+# 4 - Faça um algoritmo que receba um número inteiro e imprima na tela o seu antecessor e o seu sucessor.
 
-num = int(input('Informe um número inteiro: \n'))
+def read_number(a):
+    try:
+        a = int(a)
+        before = a - 1
+        after = a + 1
+        
+    except Exception as e:
+        print(f'Ocorreu o erro: {e}')
+    
+    return before, after
+    
+num = input('informe um número para ser analisado: \n')
 
-while type(num) != int:
-    print('Apenas números do tipo inteiro serão aceitos!')
-    num = int(input('Informe um número inteiro: \n'))
+before, after = read_number(num)
 
-before = num - 1
-after = num + 1
-
-print(f'O valor informado foi {num}, logo seu antecessor é o {before} e seu sucessor é {after}')
+print(f'O número informado é: {num} \n',
+f'O sucessor é: {after} \n',
+f'O antecessor é: {before} \n')
