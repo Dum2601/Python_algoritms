@@ -2,49 +2,53 @@
 
 #  se o aluno foi aprovado ou reprovado. Para o aluno ser considerado aprovado sua média final deve ser maior ou igual a 7.
 
-def grade(first, second, third, fourth):
+class Student:
+    def _init_(self, a, b, c, d):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        
+    def grade_calc(self):
+        self._list_grade = [self.a, self.b, self.c, self.d]
+        try:
+            self._mediun = sum(self._list_grade) / len(self._list_grade)
+        except Exception as err:
+            print('Erro no método grade_calc da classe Student.\n',
+            f'Erro: {err}')
+        return self._mediun
     
-    try:
+    @property
+    def status(self):
+        try:
+            if self.grade_calc() >= 7:
+                return True
+            elif self.grade_calc() < 7:
+                return False
+        except Exception as err:
+            print('Erro no método status da classe Student.\n',
+            f'Erro: {err}')
         
-        medium = (first + second + third + fourth)/4
-    
-    except Exception as err:
+    @property
+    def grade(self):
+        return self.grade_calc()
         
-        print(f'Ocorreu o seguinte erro: {err}')
-        
-    return medium
-        
-def calc_grade(grade):
-    
-    try:
-        
-        if grade > 7:
-            
-            return True
-            
-        elif grade < 7:
-            
-            return False
-            
-        else:
-            print('Valor inválido, tente novamente!')
-            calc_grade(grade)
-    
-    except Exception as err:
-            print(f'Ocorreu o seguinte erro: {err}')
-            
-student_grade_one = float(input('Informe a primeira nota do aluno: \n'))
-student_grade_two = float(input('Informe a segunda nota do aluno: \n'))
-student_grade_three = float(input('Informe a terceira nota do aluno: \n'))
-student_grade_four = float(input('Informe a quarta nota do aluno: \n'))
 
 
+a = float(input('Qual a primeira nota do aluno?\n'))        
+b = float(input('Qual a segunda nota do aluno?\n'))
+c = float(input('Qual a terceira nota do aluno?\n'))
+d = float(input('Qual a quarta nota do aluno?\n'))
 
-mediun = grade(first = student_grade_one, second = student_grade_two, third = student_grade_three, fourth = student_grade_four)
 
-if calc_grade(mediun) == True:
-    print(f'A nota do aluno foi: {mediun}. \n',
-    'Parabéns, ele foi aprovado!')
-elif calc_grade(mediun) == False:
-    print(f'A nota do aluno foi: {mediun} \n',
-    'Infelizmente o aluno foi reprovado!')
+student = Student(a, b, c, d)
+
+try:
+    if student.status == True:
+        print(f'A média do aluno é {student.grade}.',
+        f'\nO aluno foi aprovado!')
+    elif student.status == False:
+        print(f'A média do aluno é {student.grade}.',
+        f'\nO aluno foi Reprovado!')
+except Exception as err:
+    print('Erro no nos ifs na respo
