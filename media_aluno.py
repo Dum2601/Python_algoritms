@@ -3,7 +3,7 @@
 #  se o aluno foi aprovado ou reprovado. Para o aluno ser considerado aprovado sua média final deve ser maior ou igual a 7.
 
 class Student:
-    def _init_(self, a, b, c, d):
+    def __init__(self, a, b, c, d):
         self.a = a
         self.b = b
         self.c = c
@@ -34,12 +34,14 @@ class Student:
         return self.grade_calc()
         
 
-
-a = float(input('Qual a primeira nota do aluno?\n'))        
-b = float(input('Qual a segunda nota do aluno?\n'))
-c = float(input('Qual a terceira nota do aluno?\n'))
-d = float(input('Qual a quarta nota do aluno?\n'))
-
+try:
+    a = float(input('Qual a primeira nota do aluno?\n'))        
+    b = float(input('Qual a segunda nota do aluno?\n'))
+    c = float(input('Qual a terceira nota do aluno?\n'))
+    d = float(input('Qual a quarta nota do aluno?\n'))
+except Exception as err:
+    print(f'Erro na obtenção dos valores.\n',
+    f'Erro: {err}')
 
 student = Student(a, b, c, d)
 
@@ -51,4 +53,5 @@ try:
         print(f'A média do aluno é {student.grade}.',
         f'\nO aluno foi Reprovado!')
 except Exception as err:
-    print('Erro no nos ifs na respo
+    print('Erro no nos ifs na resposta.\n',
+            f'Erro: {err}')
