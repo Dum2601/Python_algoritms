@@ -1,16 +1,20 @@
 # 20 - Faça um algoritmo que receba um valor inteiro e imprima na tela a sua tabuada.
 
-class Tab:
-    def __init__(self, x):
-        self.x = x
-        
-    def create_tab(self):
-        for i in range(1, 11):
-            print(f'{i} * {self.x} = {i*self.x}')
-            
+class Tabuada:
+    def __init__(self, num):
+        self.num = num
+    
+    @property
+    def show_tab(self):
+        try:
+            str_tab = ''
+            for n in range(1, 11):
+                str_tab += f'{n} X {self.num} = {n * self.num}\n'
+            return str_tab  
+        except Exception as err:
+            return f'Erro: {err}'
 
-number = int(input('Informe o número desejado: \n'))
+num = int(input('Informe o número que será usado para a tabuada! \n'))
 
-tab = Tab(number)
-
-tab.create_tab()
+tabuada = Tabuada(num)
+print(tabuada.show_tab)
